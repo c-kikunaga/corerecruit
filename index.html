@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>営業職(セールス)採用 | 株式会社これから</title>
+<style>
+  :root{
+    --primary:#D24A54;
+    --primary-dark:#a83840;
+    --accent:#e8606a;
+    --dark:#1a1a2e;
+    --navy:#16213e;
+    --bg:#fffaf7;
+    --text:#2b2b2b;
+    --gray:#777;
+    --radius:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{padding-bottom:72px;font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;color:var(--text);background:var(--bg);line-height:1.8;}
+  img{max-width:100%;display:block;}
+
+  /* ===== Hero ===== */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:center;background:linear-gradient(120deg,var(--dark) 0%,var(--navy) 55%,#7a2c12 100%);overflow:hidden;color:#fff;padding:80px 24px 80px;}
+  .hero::before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(255,87,34,.55),transparent 70%);top:-150px;right:-120px;}
+  .hero::after{content:"";position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,152,0,.35),transparent 70%);bottom:-120px;left:-100px;}
+  .hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);padding:6px 18px;border-radius:999px;font-size:.85rem;letter-spacing:.1em;margin-bottom:24px;}
+  .hero h1{font-size:clamp(2rem,5.5vw,3.6rem);font-weight:900;line-height:1.35;margin-bottom:24px;}
+  .hero h1 em{font-style:normal;background:linear-gradient(transparent 60%,var(--primary) 60%);padding:0 4px;}
+  .hero p{font-size:clamp(.95rem,1.6vw,1.1rem);max-width:640px;color:rgba(255,255,255,.85);margin-bottom:40px;}
+  .hero-btns{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;padding:16px 40px;border-radius:999px;font-size:1rem;transition:transform .2s,box-shadow .2s;}
+  .btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;box-shadow:0 6px 20px rgba(255,87,34,.45);}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(255,87,34,.55);}
+  .btn-ghost{border:2px solid rgba(255,255,255,.6);color:#fff;}
+  .btn-ghost:hover{background:rgba(255,255,255,.1);}
+
+  /* ===== Sections ===== */
+  section{padding:96px 24px;}
+  .inner{max-width:1100px;margin:0 auto;}
+  .sec-label{display:inline-block;color:var(--primary);font-weight:800;letter-spacing:.18em;font-size:.8rem;margin-bottom:12px;text-transform:uppercase;}
+  .sec-title{font-size:clamp(1.5rem,3.4vw,2.2rem);font-weight:900;line-height:1.4;margin-bottom:20px;color:var(--dark);}
+  .sec-lead{max-width:760px;color:#555;margin-bottom:56px;}
+
+  /* ===== Timeline ===== */
+  .timeline{position:relative;max-width:760px;margin:0 auto;padding-left:24px;}
+  .timeline::before{content:"";position:absolute;left:84px;top:8px;bottom:8px;width:4px;border-radius:2px;background:linear-gradient(var(--primary),var(--accent));}
+  .tl-item{display:flex;gap:28px;margin-bottom:32px;align-items:flex-start;}
+  .tl-time{flex:0 0 60px;font-weight:900;color:var(--primary);font-size:1.05rem;text-align:right;padding-top:14px;}
+  .tl-dot{flex:0 0 18px;height:18px;border-radius:50%;background:#fff;border:5px solid var(--primary);margin-top:20px;position:relative;z-index:1;}
+  .tl-card{flex:1;background:#fff;border-radius:var(--radius);padding:18px 24px;box-shadow:0 4px 16px rgba(0,0,0,.07);}
+  .tl-card h3{font-size:1.02rem;color:var(--dark);margin-bottom:4px;}
+  .tl-card p{font-size:.88rem;color:var(--gray);}
+  @media(max-width:560px){
+    .timeline{padding-left:0;}
+    .timeline::before{left:64px;}
+    .tl-time{flex-basis:44px;font-size:.9rem;}
+    .tl-card{padding:14px 16px;}
+  }
+
+  /* ===== Team ===== */
+  .team-sec{background:linear-gradient(180deg,#fff 0%,#fff3ec 100%);}
+  .team-diagram{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:24px;}
+  .team-center{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;font-weight:900;font-size:1.15rem;padding:26px 56px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(255,87,34,.35);text-align:center;}
+  .team-center small{display:block;font-weight:600;font-size:.78rem;opacity:.9;margin-top:4px;}
+  .team-arrow{font-size:1.6rem;color:var(--primary);font-weight:900;}
+  .team-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;width:100%;max-width:860px;}
+  .team-card{background:#fff;border:2px solid #ffd9c7;border-radius:var(--radius);padding:22px 14px;text-align:center;transition:transform .2s,border-color .2s;}
+  .team-card:hover{transform:translateY(-4px);border-color:var(--primary);}
+  .team-card .icon{font-size:1.9rem;}
+  .team-card h3{font-size:.98rem;color:var(--dark);margin:8px 0 4px;}
+  .team-card p{font-size:.8rem;color:var(--gray);line-height:1.6;}
+  @media(max-width:760px){.team-row{grid-template-columns:repeat(2,1fr);}}
+
+  /* ===== Career ===== */
+  .career-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:64px;}
+  .step{position:relative;background:#fff;border-radius:var(--radius);padding:34px 26px;box-shadow:0 6px 20px rgba(0,0,0,.07);border-top:6px solid var(--accent);}
+  .step:nth-child(2){border-top-color:var(--primary);}
+  .step:nth-child(3){border-top-color:var(--primary-dark);}
+  .step .grade{font-size:.78rem;font-weight:800;letter-spacing:.15em;color:var(--primary);margin-bottom:6px;}
+  .step h3{font-size:1.3rem;font-weight:900;color:var(--dark);margin-bottom:10px;}
+  .step .salary{font-size:1.5rem;font-weight:900;color:var(--primary-dark);margin-bottom:8px;}
+  .step .salary small{font-size:.8rem;color:var(--gray);font-weight:600;}
+  .step p{font-size:.85rem;color:var(--gray);}
+  @media(max-width:760px){.career-steps{grid-template-columns:1fr;}}
+  .eval-box{background:var(--dark);color:#fff;border-radius:var(--radius);padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .eval-box h3{font-size:1.1rem;margin-bottom:16px;color:var(--accent);}
+  .eval-box ul{list-style:none;}
+  .eval-box li{padding:8px 0 8px 28px;position:relative;font-size:.92rem;border-bottom:1px dashed rgba(255,255,255,.15);}
+  .eval-box li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:900;}
+  @media(max-width:760px){.eval-box{grid-template-columns:1fr;padding:28px;}}
+
+  /* ===== Interviews ===== */
+  .voice-sec{background:linear-gradient(180deg,#fff3ec 0%,#fff 100%);}
+  .voices{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .voice{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:0 6px 20px rgba(0,0,0,.07);}
+  .voice-head{display:flex;align-items:center;gap:16px;margin-bottom:18px;}
+  .avatar{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;color:#fff;flex-shrink:0;}
+  .av1{background:linear-gradient(135deg,#ff5722,#ff9800);}
+  .av2{background:linear-gradient(135deg,#16213e,#3a5ba0);}
+  .voice-head .name{font-weight:900;color:var(--dark);}
+  .voice-head .meta{font-size:.78rem;color:var(--gray);}
+  .voice h3{font-size:1.05rem;color:var(--primary-dark);margin-bottom:10px;line-height:1.5;}
+  .voice p{font-size:.9rem;color:#555;}
+  @media(max-width:760px){.voices{grid-template-columns:1fr;}}
+
+  /* ===== FAQ ===== */
+  .faq-list{max-width:800px;margin:0 auto;}
+  details{background:#fff;border-radius:12px;margin-bottom:14px;box-shadow:0 3px 12px rgba(0,0,0,.06);overflow:hidden;}
+  summary{cursor:pointer;list-style:none;padding:20px 56px 20px 24px;font-weight:700;color:var(--dark);position:relative;display:flex;align-items:center;gap:14px;}
+  summary::-webkit-details-marker{display:none;}
+  summary .q{flex:0 0 30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:900;}
+  summary::after{content:"+";position:absolute;right:22px;font-size:1.5rem;color:var(--primary);font-weight:400;transition:transform .25s;}
+  details[open] summary::after{transform:rotate(45deg);}
+  .faq-a{padding:0 24px 22px 68px;font-size:.92rem;color:#555;}
+
+  /* ===== CTA ===== */
+  .cta{background:transparent;text-align:center;color:var(--text);padding:48px 24px;}
+  .cta h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;margin-bottom:16px;}
+  .cta p{max-width:600px;margin:0 auto 36px;color:rgba(255,255,255,.92);}
+  .cta .btn{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;box-shadow:0 8px 24px rgba(210,74,84,.35);}
+  .cta .btn:hover{transform:translateY(-3px);}
+
+  footer{background:var(--dark);color:rgba(255,255,255,.7);text-align:center;padding:32px 24px;font-size:.82rem;}
+  footer .logo{color:#fff;display:inline-block;margin-bottom:8px;}
+
+  /* ===== Requirements ===== */
+  .req-sec{background:linear-gradient(180deg,#fff 0%,#fff3ec 100%);}
+  .req-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px;}
+  .req-box{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:0 6px 20px rgba(0,0,0,.07);}
+  .req-box h3{font-size:1rem;font-weight:900;color:var(--dark);margin-bottom:18px;padding-bottom:10px;border-bottom:3px solid var(--primary);}
+  .req-box ul{list-style:none;}
+  .req-box li{padding:9px 0 9px 28px;position:relative;font-size:.9rem;border-bottom:1px dashed #ffe0cc;}
+  .req-box li:last-child{border-bottom:none;}
+  .req-box li::before{content:"●";position:absolute;left:0;color:var(--primary);font-size:.65rem;top:13px;}
+  .req-box.welcome li::before{content:"☆";color:var(--accent);font-size:.8rem;top:11px;}
+  .req-persona{background:#fff;border-radius:var(--radius);padding:32px;box-shadow:0 6px 20px rgba(0,0,0,.07);}
+  .req-persona h3{font-size:1rem;font-weight:900;color:var(--dark);margin-bottom:18px;padding-bottom:10px;border-bottom:3px solid var(--accent);}
+  .persona-tags{display:flex;flex-wrap:wrap;gap:12px;}
+  .persona-tag{background:linear-gradient(135deg,#fff3ec,#ffe0cc);border:1.5px solid #ffb88a;border-radius:999px;padding:8px 20px;font-size:.88rem;font-weight:700;color:var(--primary-dark);}
+  @media(max-width:760px){.req-grid{grid-template-columns:1fr;}}
+
+  /* ===== Application Requirements ===== */
+  .app-req-sec{background:#fff;}
+  .app-table{width:100%;border-collapse:collapse;margin-top:8px;}
+  .app-table th,.app-table td{padding:22px 24px;text-align:left;vertical-align:top;font-size:.92rem;border-bottom:1px solid #f0e8e0;}
+  .app-table th{width:160px;font-weight:900;color:var(--primary-dark);white-space:nowrap;background:#fff8f5;}
+  .app-table td{color:#444;line-height:1.9;}
+  .app-table tr:last-child th,.app-table tr:last-child td{border-bottom:none;}
+  @media(max-width:640px){.app-table,.app-table tbody,.app-table tr,.app-table th,.app-table td{display:block;width:100%;} .app-table th{border-bottom:none;padding-bottom:4px;background:transparent;color:var(--primary);} .app-table td{padding-top:4px;}}
+
+
+  /* ===== Sticky Entry Bar ===== */
+  .sticky-entry{display:none;}
+  @media(max-width:760px){.sticky-entry{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(26,26,46,.95);backdrop-filter:blur(8px);padding:14px 24px;display:flex;align-items:center;justify-content:center;box-shadow:0 -4px 20px rgba(0,0,0,.2);}}
+  .sticky-entry .btn{padding:14px 56px;font-size:1rem;width:100%;text-align:center;}
+
+  /* scroll fade-in */
+  .fade{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+  .fade.show{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+
+<!-- ===== Hero ===== -->
+<div class="hero">
+  <div class="hero-inner">
+    <span class="tag">SALES CAREER ｜ 営業職 採用情報</span>
+    <h1>売って終わりじゃない。<br><em>事業成長に伴走する</em>セールスへ。</h1>
+    <p>株式会社これからのセールスは、EC事業者の課題に向き合い、提案から成果確認まで一気通貫で支援するポジション。社内の専門チームを束ね、顧客の「売れる」をつくる仕事です。</p>
+    <div class="hero-btns">
+      <a class="btn btn-primary" href="#entry">エントリーする</a>
+      <a class="btn btn-ghost" href="#day">仕事内容を見る</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 1日の流れ ===== -->
+<section id="day">
+  <div class="inner">
+    <span class="sec-label">A Day of Sales</span>
+    <h2 class="sec-title fade">セールスの仕事を、1日単位で見る</h2>
+    <p class="sec-lead fade">セールスは、EC事業者の課題を聞いて終わる仕事ではありません。商談前の仮説立て、商談での課題整理、提案書作成、社内のECコンサルタントや制作チームとの連携、受注後の成果確認まで、一気通貫で事業成長に伴走します。</p>
+    <div class="timeline">
+      <div class="tl-item fade"><div class="tl-time">10:00</div><div class="tl-dot"></div><div class="tl-card"><h3>朝会・案件確認</h3><p>チームで進行中の案件状況と今日の動きを共有します。</p></div></div>
+      <div class="tl-item fade"><div class="tl-time">11:00</div><div class="tl-dot"></div><div class="tl-card"><h3>新規商談</h3><p>事前に立てた仮説をもとに、EC事業者の課題をヒアリング・整理します。</p></div></div>
+      <div class="tl-item fade"><div class="tl-time">13:00</div><div class="tl-dot"></div><div class="tl-card"><h3>既存顧客の改善提案</h3><p>受注後の成果を確認し、次の打ち手を提案します。</p></div></div>
+      <div class="tl-item fade"><div class="tl-time">15:00</div><div class="tl-dot"></div><div class="tl-card"><h3>制作・広告チームとのすり合わせ</h3><p>顧客の課題を社内の専門チームと共有し、支援内容を具体化します。</p></div></div>
+      <div class="tl-item fade"><div class="tl-time">17:00</div><div class="tl-dot"></div><div class="tl-card"><h3>提案書作成</h3><p>商談で整理した課題をもとに、成果につながる提案へ落とし込みます。</p></div></div>
+      <div class="tl-item fade"><div class="tl-time">18:30</div><div class="tl-dot"></div><div class="tl-card"><h3>振り返り・明日の準備</h3><p>今日の商談を振り返り、明日の仮説を立てて1日を締めくくります。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== チーム構成と連携図 ===== -->
+<section id="team" class="team-sec">
+  <div class="inner">
+    <span class="sec-label">Team</span>
+    <h2 class="sec-title fade">一人で売るのではなく、チームで成果をつくる</h2>
+    <p class="sec-lead fade">セールスは、案件の起点をつくる役割です。ヒアリングした課題を、ECコンサルタント、制作、広告運用、ディレクターと連携しながら、成果につながる支援へ変換していきます。顧客にとっての最適をつくるために、社内の専門性を束ねることもこの役割の重要な価値です。</p>
+    <div class="team-diagram fade">
+      <div class="team-center">セールス<small>案件の起点をつくる</small></div>
+      <div class="team-arrow">↓ 課題を共有・連携 ↓</div>
+      <div class="team-row">
+        <div class="team-card"><div class="icon">📊</div><h3>ECコンサルタント</h3><p>売上改善の戦略を設計</p></div>
+        <div class="team-card"><div class="icon">🎨</div><h3>制作</h3><p>サイト・クリエイティブを制作</p></div>
+        <div class="team-card"><div class="icon">📣</div><h3>広告運用</h3><p>集客施策を実行・改善</p></div>
+        <div class="team-card"><div class="icon">🧭</div><h3>ディレクター</h3><p>案件進行を統括</p></div>
+      </div>
+      <div class="team-arrow">↓</div>
+      <div class="team-center" style="background:var(--dark);box-shadow:0 10px 30px rgba(22,33,62,.35);">顧客(EC事業者)の成果<small>「売れる」をチームでつくる</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== キャリアパス・評価・年収 ===== -->
+<section id="career">
+  <div class="inner">
+    <span class="sec-label">Career &amp; Salary</span>
+    <h2 class="sec-title fade">成果の出し方が、キャリアの広がりにつながる</h2>
+    <p class="sec-lead fade">セールスとして成果を出した先には、マネジメントを担う道だけでなく、特定業界のスペシャリスト、事業開発寄りの役割、ECコンサルタントとの越境など、複数のキャリアが広がっています。評価では、売上だけでなく、提案の再現性、チーム貢献、顧客成果への関与も重視します。</p>
+    <div class="career-steps">
+      <div class="step fade">
+        <div class="grade">STEP 1</div>
+        <h3>メンバー</h3>
+        <div class="salary">350<small>万円</small>＋業績給</div>
+        <p>25歳・入社2年目のモデル例。商談と提案の基礎を固め、成果の再現性を身につけるフェーズ。</p>
+      </div>
+      <div class="step fade">
+        <div class="grade">STEP 2</div>
+        <h3>リーダー</h3>
+        <div class="salary">500<small>万円</small>＋業績給</div>
+        <p>28歳・入社5年目のモデル例。自身の成果に加え、チームの提案品質とナレッジ共有を牽引するフェーズ。</p>
+      </div>
+      <div class="step fade">
+        <div class="grade">STEP 3</div>
+        <h3>マネージャー</h3>
+        <div class="salary">800<small>万円</small>＋業績給</div>
+        <p>31歳・入社8年目のモデル例。組織の成果に責任を持ち、事業の成長戦略を描くフェーズ。</p>
+      </div>
+    </div>
+    <div class="eval-box fade">
+      <div>
+        <h3>評価指標の例</h3>
+        <ul>
+          <li>売上 / 粗利</li>
+          <li>受注率</li>
+          <li>継続率</li>
+          <li>ナレッジ共有</li>
+          <li>顧客満足</li>
+        </ul>
+      </div>
+      <div>
+        <h3>広がるキャリアの例</h3>
+        <ul>
+          <li>マネジメント(チーム・組織運営)</li>
+          <li>特定業界のスペシャリスト</li>
+          <li>事業開発寄りの役割</li>
+          <li>ECコンサルタントへの越境</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 先輩に聞いてみた ===== -->
+<section id="voice" class="voice-sec">
+  <div class="inner">
+    <span class="sec-label">Interview</span>
+    <h2 class="sec-title fade">先輩に聞いてみた</h2>
+    <p class="sec-lead fade">実際に働くセールスメンバーに、仕事のリアルを聞きました。</p>
+    <div class="voices">
+      <div class="voice fade">
+        <div class="voice-head">
+          <div class="avatar av1">👤</div>
+          <div><div class="name">佐藤 拓也(仮)</div><div class="meta">セールス リーダー / 入社4年目</div></div>
+        </div>
+        <h3>「提案が顧客の売上になる瞬間が、いちばんの報酬です」</h3>
+        <p>前職は人材業界の営業でした。入社当初はEC知識ゼロでしたが、商談に同席しながら学べる環境があり、半年で独り立ちできました。自分の提案がきっかけで顧客の月商が2倍になったときは、この仕事を選んでよかったと心から思いましたね。</p>
+      </div>
+      <div class="voice fade">
+        <div class="voice-head">
+          <div class="avatar av2">👤</div>
+          <div><div class="name">田中 美咲(仮)</div><div class="meta">セールス メンバー / 入社2年目</div></div>
+        </div>
+        <h3>「一人で抱え込まない。チームで戦える安心感があります」</h3>
+        <p>営業というと個人プレーのイメージでしたが、ここは違いました。コンサルタントや制作チームと一緒に提案をつくるので、未経験の私でも自信を持って顧客と向き合えます。提案の幅が広がるたびに、自分の成長を実感しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="inner">
+    <span class="sec-label">FAQ</span>
+    <h2 class="sec-title fade">よくある質問</h2>
+    <p class="sec-lead fade">応募前の疑問にお答えします。</p>
+    <div class="faq-list fade">
+      <details>
+        <summary><span class="q">Q</span>営業の商談スタイルは?</summary>
+        <div class="faq-a">オンライン商談が中心です。押し売りではなく、EC事業者の課題を整理し、最適な支援を設計する提案型のスタイルです。</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>入社後の立ち上がり期間は?</summary>
+        <div class="faq-a">入社後約1〜3ヶ月は研修と商談同席が中心です。先輩のフォローを受けながら、平均して半年程度で独り立ちするメンバーが多いです。</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>残業の波は?</summary>
+        <div class="faq-a">月末や大型案件の提案前は忙しくなることもありますが、チームで業務を分担し、平準化に取り組んでいます。</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>どのくらい裁量がある?</summary>
+        <div class="faq-a">提案内容の設計や社内チームの巻き込み方は、担当セールスに大きな裁量があります。年次に関係なく、良い提案は積極的に採用されます。</div>
+      </details>
+      <details>
+        <summary><span class="q">Q</span>EC知識がなくても大丈夫?</summary>
+        <div class="faq-a">大丈夫です。入社メンバーの多くはEC未経験からのスタートです。研修制度と商談同席、社内ナレッジ共有の仕組みでキャッチアップできます。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== 募集する人・応募資格 ===== -->
+<section id="requirements" class="req-sec">
+  <div class="inner">
+    <span class="sec-label">Personality &amp; Qualifications</span>
+    <h2 class="sec-title fade">募集する人・応募資格</h2>
+    <div class="req-grid">
+      <div class="req-box fade">
+        <h3>必要スキル / 経験</h3>
+        <ul>
+          <li>当社ミッション・バリューへの共感</li>
+          <li>セールス経験（2年以上）</li>
+          <li>インサイドセールス経験（2年以上）</li>
+        </ul>
+      </div>
+      <div class="req-box welcome fade">
+        <h3>歓迎 / 経験</h3>
+        <ul>
+          <li>Webサービスのセールス経験</li>
+          <li>広告やマーケティングに携わる会社での勤務経験</li>
+          <li>企画立案、企画提案書作成・報告書作成経験</li>
+          <li>経験を活かしてより高いステージに挑戦したい方</li>
+          <li>新しいことにも能動的かつ柔軟に対応できる方</li>
+          <li>企業の成長に主体的に携わっていきたい方</li>
+        </ul>
+      </div>
+    </div>
+    <div class="req-persona fade">
+      <h3>歓迎する人物像</h3>
+      <div class="persona-tags">
+        <span class="persona-tag">顧客対応が好きな方</span>
+        <span class="persona-tag">技術への向上心のある方</span>
+        <span class="persona-tag">新しい技術への感度が高い方</span>
+        <span class="persona-tag">主体的に行動できる方</span>
+        <span class="persona-tag">関わる人を大切にできる方</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 募集要項 ===== -->
+<section id="job-details" class="app-req-sec">
+  <div class="inner">
+    <span class="sec-label">Application Requirements</span>
+    <h2 class="sec-title fade">募集要項</h2>
+    <table class="app-table fade">
+      <tbody>
+        <tr>
+          <th>業務</th>
+          <td>お客様から現状の課題をヒアリングし、ビジネス成長のための最適なプランを提案していきます。提案にはWEBマーケティングやWEB業界にまつわる幅広い知識が必要です。</td>
+        </tr>
+        <tr>
+          <th>給与</th>
+          <td>
+            年収350万円〜1,000万円<br>＋業績手当（会社の業績に応じて毎月支給）<br><br>
+            <strong>■業績手当とは</strong><br>
+            全社の収益に基づいた業績給となっております。入社日の浅い方でもみんなで一丸となって利益を上げれば月10万円の業績給が貰えることも！<br><br>
+            ※経験・能力・スキルを考慮の上、決定します。<br>
+            ※固定残業代を含む。<br>
+            ※超過残業代は別途支給します。
+          </td>
+        </tr>
+        <tr>
+          <th>応募方法</th>
+          <td>「応募する」ボタンより、エントリーフォームから必要事項を入力・書類を添付してください。</td>
+        </tr>
+        <tr>
+          <th>休日・休暇</th>
+          <td>完全週休2日制（土日）、祝日、年末年始（7日間）、GW（11日間）、夏季休暇（3〜6日間）、有給休暇、産前・産後休暇（取得実績あり）、育児休暇（取得実績あり）、特別休暇</td>
+        </tr>
+        <tr>
+          <th>勤務時間</th>
+          <td>10：00 ～ 19：00（休憩 1時間）</td>
+        </tr>
+        <tr>
+          <th>勤務地</th>
+          <td>
+            <strong>■東京本社</strong><br>
+            東京都新宿区四谷3丁目5 文化エステート四谷ビル 5/6/7F<br><br>
+            <strong>■大阪支社</strong><br>
+            大阪府大阪市淀川区西中島5-1-4 モジュール新大阪 6F
+          </td>
+        </tr>
+        <tr>
+          <th>待遇・福利厚生</th>
+          <td>出戻り制度、レジェンド制度（入社5年目・10年目に特別手当・特別休暇）、スキルアップ制度、出産・育児支援制度、私服・髪型自由、ネイル自由、副業OK ※業績連動手当の支給対象外となります、新規企画制度……載せきれないですが他にもまだまだ、社員にとって嬉しい制度が盛りだくさんです！</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="entry" class="cta">
+  <div class="inner">
+    <a class="btn" href="#">エントリーはこちら</a>
+  </div>
+</section>
+
+<footer>
+  <a class="logo" href="#">株式会社<span style="color:var(--primary)">これから</span></a>
+  <p>&copy; 2026 KOREKARA Inc. All Rights Reserved.</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
+
+<div class="sticky-entry">
+  <a class="btn btn-primary" href="#entry">エントリーする</a>
+</div>
+</body>
+</html>
